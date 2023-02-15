@@ -1,5 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from "react";
-import axios from 'axios'
+import axios from "../api/axios";
+import { useNavigate, useLocation } from "react-router-dom"
 
 const PostContext = createContext({})
 
@@ -40,25 +41,19 @@ export const PostProvider = ({ children }) => {
   })
   const [isLoading, setIsLoading] = useState(true)
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:8000/api/post")
-  //     .then((res) => {
-  //       dispatch({ type: 'SET_POSTS', payload: res.data})
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [dispatch])
-
   useEffect(() => {
-    const fetchPosts = async () => {
-      setIsLoading(true)
-      const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
-      dispatch({ type: 'SET_POSTS', payload: res.data})
-      setIsLoading(false)
+    const getPosts = async () => {
+      try {
+        setIsLoading(true)
+        const response = await axios.get('/posts')
+        dispatch({ type: 'SET_POSTS', payload: response.data})
+        setIsLoading(false)
+      } catch (err) {
+        console.log(err)
+      }
     }
-    fetchPosts()
-  }, [])
+    getPosts()
+  }, [dispatch])
 
   return (
     <PostContext.Provider value={{...state, dispatch, isLoading}}>

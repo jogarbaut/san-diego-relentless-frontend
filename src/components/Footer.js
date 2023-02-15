@@ -32,6 +32,7 @@ const Footer = () => {
             >
               TeamSnap <FaExternalLinkAlt />
             </a>
+            <Link to="dashboard">Admin Dashboard</Link>
           </div>
         </Col>
         <Col xs={12} md={4} className="footer-contact g-0">

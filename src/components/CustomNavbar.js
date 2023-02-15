@@ -18,14 +18,14 @@ const CustomNavbar = ({ activePage }) => {
       className="custom-navbar"
       variant="dark"
     >
-      <Navbar.Brand href="#home" className="custom-navbar-brand">
+      <Navbar.Brand href="/home" className="custom-navbar-brand">
         <img src={IconSmall} alt="logo" className="custom-navbar-logo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mx-auto custom-navbar-nav">
           <Link
-            to="/"
+            to="/home"
             className={
               activePage === "home"
                 ? activeStyleClassName

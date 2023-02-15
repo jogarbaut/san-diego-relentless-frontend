@@ -197,6 +197,7 @@ section {
 
 .dashboard {
   background: var(--GRAY);
+  height: 75vh;
 }
 
 .dashboard-nav-title {
