@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Container, Row, Col, ListGroup, Button } from "react-bootstrap"
-import NewsEditor from "../components/NewsEditor"
+import NewsEditor from "../components/news/NewsEditor"
 import FeaturedNewsEditor from "../components/FeaturedNewsEditor"
 import BoysRostersEditor from "../components/BoysRostersEditor"
 import GirlsRostersEditor from "../components/GirlsRostersEditor"
@@ -9,6 +9,7 @@ import StoreEditor from "../components/StoreEditor"
 import UsersEditor from "../components/UsersEditor"
 import { FaRegNewspaper, FaBasketballBall, FaStore, FaUsers } from "react-icons/fa"
 import useLogout from "../hooks/useLogout"
+
 
 const DashboardPage = ({ setActivePage }) => {
   const navigate = useNavigate()
