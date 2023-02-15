@@ -15,18 +15,6 @@ const HomePage = ({ setActivePage }) => {
     setActivePage("home")
   }, [])
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:8000/api/get-user", { withCredentials: true })
-  //     .then((res) => {
-  //       console.log(res.data)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [])
-
-  // console.log(user)
-
   return (
     <>
       <div className="w-100 py-4 mx-auto text-center section-bg-white">

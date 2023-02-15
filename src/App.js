@@ -11,7 +11,6 @@ import Dashboard from "./pages/DashboardPage"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
 import PostPage from "./pages/PostPage"
-import PostDetailPage from "./pages/PostDetailPage"
 import CustomNavbar from "./components/CustomNavbar"
 import Footer from "./components/Footer"
 import ContactPage from "./pages/ContactPage"
@@ -57,10 +56,6 @@ const App = () => {
                     exact
                     path="news"
                     element={<PostPage setActivePage={setActivePage} />}
-                  />
-                  <Route
-                    path="news/:id"
-                    element={<PostDetailPage setActivePage={setActivePage} />}
                   />
                   <Route
                     path="contact"
