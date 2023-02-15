@@ -20,7 +20,7 @@ const Footer = () => {
         <Col xs={12} md={2} className="g-0">
           <div className="section-subtitle text-brand-secondary">LINKS</div>
           <div className="footer-links">
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
             <Link to="/news">News</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/boys-teams">Boys Teams</Link>

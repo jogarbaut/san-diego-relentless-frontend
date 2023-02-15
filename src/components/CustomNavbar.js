@@ -25,7 +25,7 @@ const CustomNavbar = ({ activePage }) => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mx-auto custom-navbar-nav">
           <Link
-            to="/home"
+            to="/"
             className={
               activePage === "home"
                 ? activeStyleClassName

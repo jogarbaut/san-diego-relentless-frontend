@@ -41,7 +41,7 @@ const App = () => {
                 <Route path="/" element={<Layout />}>
                   {/* Public Routes */}
                   <Route
-                    path="home"
+                    path="/"
                     element={<HomePage setActivePage={setActivePage} />}
                   />
                   <Route
