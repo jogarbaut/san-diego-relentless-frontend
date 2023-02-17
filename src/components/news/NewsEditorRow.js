@@ -1,6 +1,5 @@
 import moment from 'moment'
 import { Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 
 const NewsEditorRow = ({ post, setSelectedPostId, setShowEditPostEditorModal }) => {
   const handleSelectedPostToEdit = () => {
@@ -12,8 +11,8 @@ const NewsEditorRow = ({ post, setSelectedPostId, setShowEditPostEditorModal }) 
     <tr>
       <td>{moment.utc(post.date).format("MM-DD-YY")}</td>
       <td>{post.title}</td>
-      <td>{post.description.substring(0, 10)}</td>
-      <td>{post.markdown.substring(0, 15)}</td>
+      <td>{post.description.substring(0, 20)}...</td>
+      <td>{post.markdown.substring(0, 30)}...</td>
       <td><Button onClick={handleSelectedPostToEdit}>Edit</Button></td>
     </tr>
   )

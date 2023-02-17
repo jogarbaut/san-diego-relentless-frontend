@@ -54,12 +54,13 @@ const LoginPage = () => {
   }
 
   return (
-    <div>
-      <Container fluid>
+    <div className="section-padding">
+      <Container fluid className="content-container">
         <Row className="justify-content-center">
           <Col md={9} lg={6}>
             <Form onSubmit={onSubmitHandler}>
               <Form.Group className="mb-3">
+                <h2 className="text-center text-brand-primary">Login</h2>
                 <Form.Label htmlFor="username">Username</Form.Label>
                 <Form.Control
                   name="username"

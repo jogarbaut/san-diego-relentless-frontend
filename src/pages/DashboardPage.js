@@ -1,15 +1,14 @@
-import { useState, useContext, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { Container, Row, Col, ListGroup, Button } from "react-bootstrap"
+import { Row, Col, Button } from "react-bootstrap"
 import NewsEditor from "../components/news/NewsEditor"
-import FeaturedNewsEditor from "../components/FeaturedNewsEditor"
-import BoysRostersEditor from "../components/BoysRostersEditor"
-import GirlsRostersEditor from "../components/GirlsRostersEditor"
+import FeaturedPostEditor from "../components/featuredPosts/FeaturedPostEditor"
+import BoyTeamsEditor from "../components/boysTeams/BoyTeamsEditor"
+import GirlTeamsEditor from "../components/girlsTeams/GirlTeamsEditor"
 import StoreEditor from "../components/StoreEditor"
 import UsersEditor from "../components/UsersEditor"
-import { FaRegNewspaper, FaBasketballBall, FaStore, FaUsers } from "react-icons/fa"
+import { FaRegNewspaper, FaBasketballBall, FaUsers } from "react-icons/fa"
 import useLogout from "../hooks/useLogout"
-
 
 const DashboardPage = ({ setActivePage }) => {
   const navigate = useNavigate()
@@ -40,25 +39,25 @@ const DashboardPage = ({ setActivePage }) => {
               News
             </p>
             <p
-              onClick={() => setEditField("featuredNews")}
-              className={editField === "featuredNews" ? "active" : ""}
+              onClick={() => setEditField("featuredPosts")}
+              className={editField === "featuredPosts" ? "active" : ""}
             >
               <FaRegNewspaper />
-              Featured News
+              Featured Posts
             </p>
             <p
-              onClick={() => setEditField("boysRosters")}
-              className={editField === "boysRosters" ? "active" : ""}
+              onClick={() => setEditField("boysTeams")}
+              className={editField === "boysTeams" ? "active" : ""}
             >
               <FaBasketballBall />
-              Boys Rosters
+              Boys Teams
             </p>
             <p
-              onClick={() => setEditField("girlsRosters")}
-              className={editField === "girlsRosters" ? "active" : ""}
+              onClick={() => setEditField("girlsTeams")}
+              className={editField === "girlsTeams" ? "active" : ""}
             >
               <FaBasketballBall />
-              Girls Rosters
+              Girls Teams
             </p>
             {/* <p
               onClick={() => setEditField("store")}
@@ -86,12 +85,12 @@ const DashboardPage = ({ setActivePage }) => {
           <div className="dashboard-editor-container">
             {editField === "news" ? (
               <NewsEditor />
-            ) : editField === "featuredNews" ? (
-              <FeaturedNewsEditor />
-            ) : editField === "boysRosters" ? (
-              <BoysRostersEditor />
-            ) : editField === "girlsRosters" ? (
-              <GirlsRostersEditor />
+            ) : editField === "featuredPosts" ? (
+              <FeaturedPostEditor />
+            ) : editField === "boysTeams" ? (
+              <BoyTeamsEditor />
+            ) : editField === "girlsTeams" ? (
+              <GirlTeamsEditor />
             ) : editField === "store" ? (
               <StoreEditor />
             ) : editField === "users" ? (

@@ -86,10 +86,12 @@ section {
 .brand-link {
   color: var(--PRIMARY-300);
   transition: .5s;
+  text-decoration: none;
 }
 
 .brand-link:hover {
   background-color: var(--SECONDARY-100);
+  color: var(--PRIMARY-300);
   padding: 0 .5em;
   border-radius: .25em;
   cursor: pointer;
@@ -117,6 +119,7 @@ section {
 .content-container {
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 75vh;
 }
 
 .content-container-title {
@@ -313,6 +316,22 @@ section {
   color: var(--SECONDARY-200);
 }
 
+.image-preview-container {
+  margin-top: 1em;
+  max-height: 300px;
+  width: 100%;
+}
+
+.image-preview-container img {
+  border: 1px solid var(--GRAY);
+  border-radius: .25em;
+  height: auto;
+  object-fit: contain;
+  padding: .5em;
+  max-height: 300px;
+  width: 100%;
+}
+
 .partners-container {
   align-items: center;
   display: flex;
@@ -341,7 +360,7 @@ section {
 }
 
 .post-preview-description {
-  font-size: .75em;
+  font-size: 1em;
   color: var(--BLACK);
 }
 
@@ -432,6 +451,10 @@ section {
   background-color: var(--SECONDARY-200);
   color: var(--PRIMARY-200);
   transition: .5s;
+}
+
+.team-detail-container {
+  margin-bottom: 3em;
 }
 
 .text-brand-primary {

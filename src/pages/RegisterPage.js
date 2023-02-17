@@ -23,7 +23,6 @@ const RegisterPage = () => {
           withCredentials: true,
         }
       )
-      console.log(JSON.stringify(response?.data))
       setSuccess(true);
       setUsername("")
       setFirstName("")

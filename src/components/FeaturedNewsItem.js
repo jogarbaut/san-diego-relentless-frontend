@@ -1,9 +1,9 @@
 import React from 'react'
 
-const FeaturedNewsItem = ({ item }) => {
+const FeaturedNewsItem = ({ featuredPost }) => {
   return (
     <article>
-      <img src={item.image} alt={item.description} className="featured-news-item"/>
+      <img src={featuredPost.image.url} alt={featuredPost.description} className="featured-news-item"/>
     </article>
   )
 }

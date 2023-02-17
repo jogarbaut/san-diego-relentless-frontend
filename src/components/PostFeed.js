@@ -24,7 +24,7 @@ const PostFeed = ({ post, setPost }) => {
       </div>
       {
         currentPosts && currentPosts.map((post) => (
-          <PostPreview key={post.id} post={post} />
+          <PostPreview key={post._id} post={post} />
         ))
       }
       <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>

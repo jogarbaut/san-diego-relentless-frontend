@@ -1,7 +1,10 @@
 import { useState } from "react"
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { AuthProvider } from "./context/AuthContext"
+import { FeaturedPostProvider } from "./context/FeaturedPostContext"
 import { PostProvider } from "./context/PostContext"
+import { BoyTeamProvider } from "./context/BoyTeamContext"
+import { GirlTeamProvider } from "./context/GirlTeamContext"
 import Layout from "./components/Layout"
 import PersistLogin from "./components/PersistLogin"
 
@@ -11,13 +14,14 @@ import Dashboard from "./pages/DashboardPage"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
 import PostPage from "./pages/PostPage"
+import PostDetail from "./components/PostDetail"
 import CustomNavbar from "./components/CustomNavbar"
 import Footer from "./components/Footer"
 import ContactPage from "./pages/ContactPage"
 import BoysTeamsPage from "./pages/BoysTeamsPage"
 import GirlsTeamsPage from "./pages/GirlsTeamsPage"
 import RequireAuth from "./components/RequireAuth"
-import MissingPage from "./pages/MissingPage"
+// import MissingPage from "./pages/MissingPage"
 
 // Components
 
@@ -34,63 +38,83 @@ const App = () => {
     <main className="app">
       <BrowserRouter>
         <AuthProvider>
-          <PostProvider>
-            <CustomNavbar activePage={activePage} />
-            <div className="sections">
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  {/* Public Routes */}
-                  <Route
-                    path="/"
-                    element={<HomePage setActivePage={setActivePage} />}
-                  />
-                  <Route
-                    path="register"
-                    element={<RegisterPage setActivePage={setActivePage} />}
-                  />
-                  <Route
-                    path="login"
-                    element={<LoginPage setActivePage={setActivePage} />}
-                  />
-                  <Route
-                    exact
-                    path="news"
-                    element={<PostPage setActivePage={setActivePage} />}
-                  />
-                  <Route
-                    path="contact"
-                    element={<ContactPage setActivePage={setActivePage} />}
-                  />
-                  <Route
-                    path="boys-teams"
-                    element={<BoysTeamsPage setActivePage={setActivePage} />}
-                  />
-                  <Route
-                    path="girls-teams"
-                    element={<GirlsTeamsPage setActivePage={setActivePage} />}
-                  />
-                  {/* Protected Routes */}
-                  <Route element={<PersistLogin />}>
-                    <Route
-                      element={
-                        <RequireAuth
-                          allowedRoles={[ROLES.Admin, ROLES.Coach]}
+          <FeaturedPostProvider>
+            <PostProvider>
+              <BoyTeamProvider>
+                <GirlTeamProvider>
+                  <CustomNavbar activePage={activePage} />
+                  <div className="sections">
+                    <Routes>
+                      <Route path="/" element={<Layout />}>
+                        {/* Public Routes */}
+                        <Route
+                          path="/"
+                          element={<HomePage setActivePage={setActivePage} />}
                         />
-                      }
-                    >
-                      <Route
-                        path="/dashboard"
-                        element={<Dashboard setActivePage={setActivePage} />}
-                      />
-                    </Route>
-                  </Route>
-                  {/* Catch All */}
-                  <Route path="*" element={<MissingPage />} />
-                </Route>
-              </Routes>
-              <Footer />
-            </div>
-          </PostProvider>
+                        <Route
+                          path="register"
+                          element={
+                            <RegisterPage setActivePage={setActivePage} />
+                          }
+                        />
+                        <Route
+                          path="login"
+                          element={<LoginPage setActivePage={setActivePage} />}
+                        />
+                        <Route
+                          exact
+                          path="news"
+                          element={<PostPage setActivePage={setActivePage} />}
+                        />
+                        <Route path="news/:id" element={<PostDetail />} />
+                        <Route
+                          path="contact"
+                          element={
+                            <ContactPage setActivePage={setActivePage} />
+                          }
+                        />
+                        <Route
+                          path="boys-teams"
+                          element={
+                            <BoysTeamsPage setActivePage={setActivePage} />
+                          }
+                        />
+                        <Route
+                          path="girls-teams"
+                          element={
+                            <GirlsTeamsPage setActivePage={setActivePage} />
+                          }
+                        />
+                        {/* Protected Routes */}
+                        <Route element={<PersistLogin />}>
+                          <Route
+                            element={
+                              <RequireAuth
+                                allowedRoles={[ROLES.Admin, ROLES.Coach]}
+                              />
+                            }
+                          >
+                            <Route
+                              path="/dashboard"
+                              element={
+                                <Dashboard setActivePage={setActivePage} />
+                              }
+                            />
+                          </Route>
+                        </Route>
+                        {/* Catch All */}
+                        <Route
+                          path="*"
+                          element={<HomePage setActivePage={setActivePage} />}
+                        />
+                      </Route>
+                    </Routes>
+                    <Footer />
+                  </div>
+                </GirlTeamProvider>
+              </BoyTeamProvider>
+            </PostProvider>
+          </FeaturedPostProvider>
         </AuthProvider>
       </BrowserRouter>
     </main>

@@ -39,7 +39,7 @@ const UsersEditor = () => {
       {users?.length ? (
         <ul>
           {users.map((user, i) => (
-            <li key={i}>{user?.email} | {user?.username}</li>
+            <li key={i}>{user?.firstName} {user?.lastName} | {user?.email} | {user?.username}</li>
           ))}
         </ul>
       ) : (
