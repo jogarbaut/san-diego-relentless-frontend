@@ -5,8 +5,8 @@ import NewsEditor from "../components/news/NewsEditor"
 import FeaturedPostEditor from "../components/featuredPosts/FeaturedPostEditor"
 import BoyTeamsEditor from "../components/boysTeams/BoyTeamsEditor"
 import GirlTeamsEditor from "../components/girlsTeams/GirlTeamsEditor"
-import StoreEditor from "../components/StoreEditor"
-import UsersEditor from "../components/UsersEditor"
+import StoreEditor from "../components/store/StoreEditor"
+import UsersEditor from "../components/users/UsersEditor"
 import { FaRegNewspaper, FaBasketballBall, FaUsers } from "react-icons/fa"
 import useLogout from "../hooks/useLogout"
 
@@ -26,9 +26,9 @@ const DashboardPage = ({ setActivePage }) => {
   }
 
   return (
-    <section className="dashboard w-100">
-      <Row className="d-flex justify-content-between w-100 h-100 g-0">
-        <Col xs={3} lg={2} className="dashboard-nav g-0">
+    <section className="dashboard page-min-height">
+      <Row className="d-flex justify-content-between g-0 h-100">
+        <Col md={2} className="dashboard-nav g-0">
           <div className="dashboard-nav-title">Content Manager</div>
           <div className="dashboard-nav-list">
             <p
@@ -80,7 +80,7 @@ const DashboardPage = ({ setActivePage }) => {
           </div>
           <Button variant="danger" onClick={signOut} className="mt-3">Sign Out</Button>
         </Col>
-        <Col xs={9} lg={10} className="g-0">
+        <Col md={10} className="g-0">
           <div className="dashboard-editor-title">Dashboard</div>
           <div className="dashboard-editor-container">
             {editField === "news" ? (

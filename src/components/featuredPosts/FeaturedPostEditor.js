@@ -1,6 +1,6 @@
 import { useState, useContext } from "react"
 import FeaturedPostContext from "../../context/FeaturedPostContext"
-import Pagination from "../Pagination"
+import Pagination from "../common/Pagination"
 import { Button, Row, Table } from "react-bootstrap"
 import NewFeaturedPostModal from "./NewFeaturedPostModal"
 import EditFeaturedPostModal from "./EditFeaturedPostModal"

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import { Navbar, Nav } from "react-bootstrap"
-import IconSmall from "../assets/img/sdr-small-icon.png"
 import {
   FaExternalLinkAlt,
   FaFacebookSquare,
@@ -19,7 +18,7 @@ const CustomNavbar = ({ activePage }) => {
       variant="dark"
     >
       <Navbar.Brand href="/home" className="custom-navbar-brand">
-        <img src={IconSmall} alt="logo" className="custom-navbar-logo" />
+        <img src='https://res.cloudinary.com/dgulbxrz1/image/upload/v1676675806/sdr/sdr-small-icon_nvo8tb.png' alt="logo" className="custom-navbar-logo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

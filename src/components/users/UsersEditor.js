@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
-import useAxiosPrivate from "../hooks/useAxiosPrivate"
+import useAxiosPrivate from "../../hooks/useAxiosPrivate"
 
 const UsersEditor = () => {
   const [users, setUsers] = useState()

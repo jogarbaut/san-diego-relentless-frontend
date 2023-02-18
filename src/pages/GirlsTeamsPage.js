@@ -1,9 +1,11 @@
 import { useContext, useEffect } from "react"
-import { Col, Row } from "react-bootstrap"
-import TeamDetails from "../components/TeamDetails"
+import LoadingSpinner from "../components/common/LoadingSpinner"
+import SectionTitle from "../components/common/SectionTitle"
+import TeamDetails from "../components/common/TeamDetails"
 import GirlTeamContext from "../context/GirlTeamContext"
+import { Col, Row } from "react-bootstrap"
 
-const GirlsTeamsPage = ({setActivePage}) => {
+const GirlsTeamsPage = ({ setActivePage }) => {
   const { girlTeams, isLoading } = useContext(GirlTeamContext)
 
   useEffect(() => {
@@ -11,12 +13,17 @@ const GirlsTeamsPage = ({setActivePage}) => {
   }, [])
 
   if (isLoading) {
-    return <p>Loading</p>
+    return (
+      <section className="section-padding section-bg-white page-min-height">
+        <SectionTitle title={"GIRLS TEAMS"} />
+        <LoadingSpinner />
+      </section>
+    )
   }
 
   return (
     <section className="section-padding section-bg-white section-contact">
-      <div className="section-title text-brand-primary">GIRLS TEAMS</div>
+      <SectionTitle title={"GIRLS TEAMS"} />
       <div className="text-brand-primary section-description">
         For information about joining San Diego Relentless, please visit our
         Contact Page.
@@ -25,7 +32,7 @@ const GirlsTeamsPage = ({setActivePage}) => {
         <Row className="g-0">
           {girlTeams &&
             girlTeams.map((team) => (
-              <Col md={4} key={team._id} >
+              <Col className="g-0" md={4} key={team._id}>
                 <TeamDetails team={team} />
               </Col>
             ))}

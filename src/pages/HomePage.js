@@ -1,32 +1,25 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
-import CarouselCustom from "../components/CarouselCustom"
-import { Container, Row, Col } from "react-bootstrap"
-import LatestNewsFeed from "../components/LatestNewsFeed"
-import FeaturedPostFeed from "../components/FeaturedPostFeed"
-import AboutSection from "../components/AboutSection"
-import PartnersSection from "../components/PartnersSection"
-import SdrBanner from "../assets/img/sdr-banner.png"
+import { useEffect } from "react"
+import CarouselCustom from "../components/carousel/CarouselCustom"
+import FeaturedPostFeed from "../components/featuredPosts/FeaturedPostFeed"
+import AboutSection from "../components/about/AboutSection"
+import PartnersSection from "../components/partners/PartnersSection"
+
 
 const HomePage = ({ setActivePage }) => {
-  const [userId, setUserId] = useState("")
-
   useEffect(() => {
     setActivePage("home")
   }, [])
 
   return (
-    <>
-      <div className="w-100 py-4 mx-auto text-center section-bg-white">
-        <img src={SdrBanner} alt="Banner" className="banner"/>
+    <main>
+      <div className="banner-container section-bg-white">
+        <img src='https://res.cloudinary.com/dgulbxrz1/image/upload/v1676672551/sdr/sdr-banner_kx3yqg.webp' alt="San Diego Relentless Banner" className="banner" />
       </div>
-      <section className="w-100">
-        <CarouselCustom />
-        <LatestNewsFeed />
-        <PartnersSection />
-        <AboutSection />
-      </section>
-    </>
+      <CarouselCustom />
+      <FeaturedPostFeed />
+      <PartnersSection />
+      <AboutSection />
+    </main>
   )
 }
 

@@ -5,25 +5,22 @@ import { FeaturedPostProvider } from "./context/FeaturedPostContext"
 import { PostProvider } from "./context/PostContext"
 import { BoyTeamProvider } from "./context/BoyTeamContext"
 import { GirlTeamProvider } from "./context/GirlTeamContext"
-import Layout from "./components/Layout"
-import PersistLogin from "./components/PersistLogin"
+import PersistLogin from "./components/common/PersistLogin"
+import Layout  from "./components/common/Layout"
+import RequireAuth from "./components/common/RequireAuth"
 
 // Pages
 import HomePage from "./pages/HomePage"
 import Dashboard from "./pages/DashboardPage"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
-import PostPage from "./pages/PostPage"
-import PostDetail from "./components/PostDetail"
-import CustomNavbar from "./components/CustomNavbar"
-import Footer from "./components/Footer"
+import NewsPage from "./pages/NewsPage"
+import PostDetail from "./components/news/PostDetail"
+import CustomNavbar from "./components/common/CustomNavbar"
+import Footer from "./components/footer/Footer"
 import ContactPage from "./pages/ContactPage"
 import BoysTeamsPage from "./pages/BoysTeamsPage"
 import GirlsTeamsPage from "./pages/GirlsTeamsPage"
-import RequireAuth from "./components/RequireAuth"
-// import MissingPage from "./pages/MissingPage"
-
-// Components
 
 const ROLES = {
   Coach: 1001,
@@ -64,7 +61,7 @@ const App = () => {
                         <Route
                           exact
                           path="news"
-                          element={<PostPage setActivePage={setActivePage} />}
+                          element={<NewsPage setActivePage={setActivePage} />}
                         />
                         <Route path="news/:id" element={<PostDetail />} />
                         <Route

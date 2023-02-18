@@ -1,6 +1,5 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import axios from "../api/axios";
-import { useNavigate, useLocation } from "react-router-dom"
 
 const PostContext = createContext({})
 

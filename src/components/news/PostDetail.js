@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 import { useContext } from "react"
-import PostContext from "../context/PostContext"
+import PostContext from "../../context/PostContext"
 import moment from "moment"
 
 const PostDetail = () => {

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react"
 import PostContext from "../../context/PostContext"
 import useAuth from "../../hooks/useAuth"
-import Pagination from "../Pagination"
+import Pagination from "../common/Pagination"
 import { Button, Row, Col, Table } from "react-bootstrap"
 import NewPostEditorModal from "./NewPostEditorModal"
 import EditPostEditorModal from "./EditPostEditorModal"
@@ -39,12 +39,9 @@ const NewsEditor = () => {
   return (
     <>
       <div className="editor-header">
-        <Row>
-
+        <Row className="g-0">
             <div className="editor-title">News</div>
-
             <Button onClick={handleShowNewPostModal} className="ms-auto">New Post</Button>
-
         </Row>
       </div>
       <Table responsive striped className="editor-table" size="sm">

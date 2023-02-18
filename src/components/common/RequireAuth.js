@@ -1,5 +1,5 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom"
-import useAuth from "../hooks/useAuth"
+import useAuth from "../../hooks/useAuth"
 
 const RequireAuth = ({ allowedRoles }) => {
   const { auth } = useAuth()
@@ -9,7 +9,7 @@ const RequireAuth = ({ allowedRoles }) => {
 
   if (auth.roles) {
     const authRolesArray = Object.values(auth.roles)
-    authorizedRole = allowedRoles.some(role => authRolesArray.includes(role))
+    authorizedRole = allowedRoles.some((role) => authRolesArray.includes(role))
   }
 
   return authorizedRole ? (

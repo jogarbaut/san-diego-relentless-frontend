@@ -1,5 +1,4 @@
-import { useContext, useState } from "react"
-import AuthContext from "../context/AuthContext"
+import { useState } from "react"
 import axios from "../api/axios"
 import { Container, Form, Row, Col, Button } from "react-bootstrap"
 
@@ -23,7 +22,7 @@ const RegisterPage = () => {
           withCredentials: true,
         }
       )
-      setSuccess(true);
+      if (response.data) setSuccess(true)
       setUsername("")
       setFirstName("")
       setLastName("")
@@ -46,9 +45,6 @@ const RegisterPage = () => {
         {success ? (
           <>
             <h1>Success!</h1>
-            <p>
-              <a href="#">Sign In</a>
-            </p>
           </>
         ) : (
           <Row className="justify-content-center">
@@ -104,19 +100,10 @@ const RegisterPage = () => {
                   />
                 </Form.Group>
 
-                {/* <Form.Group className="mb-3">
-                  <Form.Label htmlFor="confirmPassword">Confirm Password</Form.Label>
-                  <Form.Control
-                    name="confirmPassword"
-                    type="password"
-                    placeholder="Enter Password"
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                  />
-                </Form.Group> */}
-
                 <Button variant="primary" type="submit">
                   Register
                 </Button>
+                { errMsg ? <p>{errMsg}</p> : <></>}
               </Form>
             </Col>
           </Row>
